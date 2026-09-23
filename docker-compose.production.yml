@@ -11,25 +11,27 @@ services:
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
+    restart: always
 
   backend:
-    build: ./backend/
+    image: DOCKERHUB_USERNAME/kittygram_backend
     env_file: .env
     depends_on:
       - db
     volumes:
       - static:/backend_static
       - media:/media
+    restart: always
 
   frontend:
+    image: DOCKERHUB_USERNAME/kittygram_frontend
     env_file: .env
-    build: ./frontend/
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
 
   gateway:
-    build: ./nginx/
+    image: DOCKERHUB_USERNAME/kittygram_gateway
     env_file: .env
     depends_on:
       - backend
@@ -39,3 +41,4 @@ services:
     volumes:
       - static:/staticfiles
       - media:/media
+    restart: always
