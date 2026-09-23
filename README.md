@@ -1,26 +1,24 @@
-#  Как работать с репозиторием финального задания
+# Kittygram
 
-## Что нужно сделать
+![Main Kittygram workflow](https://github.com/smouk5/kittygram_final/actions/workflows/main.yml/badge.svg)
 
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
+## Описание
 
-## Как проверить работу с помощью автотестов
+Kittygram — социальная сеть для публикации карточек котиков. Зарегистрированные пользователи могут добавлять карточки своих питомцев с именем, годом рождения, цветом и фотографией, редактировать и удалять их, а также просматривать карточки других пользователей с постраничной навигацией.
 
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
-```
+## Стек технологий
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+- **Backend:** Python 3.9, Django 3.2, Django REST Framework, Djoser
+- **Frontend:** React, JavaScript (Node.js 18)
+- **База данных:** PostgreSQL 13
+- **Инфраструктура:** Docker, Docker Compose, Nginx
+- **CI/CD:** GitHub Actions
+- **Тесты:** pytest, flake8, Jest
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
+## Запуск проекта локально в контейнерах
 
-## Чек-лист для проверки перед отправкой задания
+Клонировать репозиторий:
 
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
+```bash
+git clone https://github.com/smouk5/kittygram_final.git
+cd kittygram_final
